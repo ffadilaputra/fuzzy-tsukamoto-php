@@ -1,4 +1,4 @@
-<?
+<?php
 	for($a=0;$a<=2;$a++) {
 		$vMin[$a] = $_POST['vMin'.$a];
 		$vMax[$a] = $_POST['vMax'.$a];
@@ -32,7 +32,7 @@
 
     <form method='post' action='index.php'>
     	<table><tr><td colspan='4' style='text-align:center'><b>VARIABEL</b></td></tr>
-    		<?
+    		<?php
 				$mn = array("Pembayaran Minimal","Pelayanan Tercepat","Tips Minimal");
 				$mx = array("Pembayaran Maksimal","Pelayanan Terlama","Tips Maksimal");
 				$nl = array("Bayar", "Layanan");
@@ -120,7 +120,7 @@
     	</table><br>
     </form>
 
-    <?
+    <?php
 		for($i=0;$i<=2;$i++) {
 			if ($vMin[$i]==null) { exit; }
 			if ($vMax[$i]==null) { exit; }
