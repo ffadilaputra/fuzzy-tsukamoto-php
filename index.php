@@ -33,9 +33,9 @@
     <form method='post' action='index.php'>
     	<table><tr><td colspan='4' style='text-align:center'><b>VARIABEL</b></td></tr>
     		<?php
-				$mn = array("Pembayaran Minimal","Pelayanan Tercepat","Tips Minimal");
-				$mx = array("Pembayaran Maksimal","Pelayanan Terlama","Tips Maksimal");
-				$nl = array("Bayar", "Layanan");
+				$mn = array("Permintaan Terendah","Persediaan Terendah","Produksi Terendah");
+				$mx = array("Permintaan Tertinggi","Persediaan Tertinggi","Produksi Tertinggi");
+				$nl = array("Permintaan", "Persediaan");
 				for($i=0;$i<=2;$i++) {
 					echo "<tr>
 							<td>".$mn[$i]."</td><td><input type='text' name='vMin".$i."' value='".$vMin[$i]."'</td>
@@ -55,14 +55,14 @@
 							<td>
 								<select name='rbyr".$i."'>";
 								if ($rbyr[$i]==0) {
-									echo "<option value='0' selected>Bayar Sedikit</option>
-									<option value='1'>Bayar Banyak</option>";
+									echo "<option value='0' selected>Permintaan Turun</option>
+									<option value='1'>Permintaan Naik</option>";
 								} else if ($rbyr[$i]==1) {
-									echo "<option value='0'>Bayar Sedikit</option>
-									<option value='1' selected>Bayar Banyak</option>";
+									echo "<option value='0'>Permintaan Turun</option>
+									<option value='1' selected>Permintaan Naik</option>";
 								} else {
-									echo "<option value='0' selected>Bayar Sedikit</option>
-									<option value='1'>Bayar Banyak</option>";
+									echo "<option value='0' selected>Permintaan Turun</option>
+									<option value='1'>Permintaan Naik</option>";
 								}
 								echo "</select>
 							</td>
@@ -83,14 +83,14 @@
 							<td>
 								<select name='rlyn".$i."'>";
 								if ($rlyn[$i]==0) {
-									echo "<option value='0' selected>Layanan Cepat</option>
-									<option value='1'>Layanan Lama</option>";
+									echo "<option value='0' selected>Persediaan Sedikit</option>
+									<option value='1'>Persediaan Banyak</option>";
 								} else if ($rlyn[$i]==1) {
-									echo "<option value='0'>layanan Cepat</option>
-									<option value='1' selected>Layanan Lama</option>";
+									echo "<option value='0'>Persediaan Sedikit</option>
+									<option value='1' selected>Persediaan Banyak</option>";
 								} else {
-									echo "<option value='0' selected>Layanan Cepat</option>
-									<option value='1'>Layanan Lama</option>";
+									echo "<option value='0' selected>Persediaan Sedikit</option>
+									<option value='1'>Persediaan Banyak</option>";
 								}
 								echo "</select>
 							</td>
@@ -98,14 +98,14 @@
 							<td>
 								<select name='rtip".$i."'>";
 								if ($rbyr[$i]==0) {
-									echo "<option value='0' selected>Tips Sedikit</option>
-									<option value='1'>Tips Banyak</option>";
+									echo "<option value='0' selected>Produksi Berkurang</option>
+									<option value='1'>Produksi Bertambah</option>";
 								} else if ($rtip[$i]==1) {
-									echo "<option value='0'>Tips Sedikit</option>
-									<option value='1' selected>Tips Banyak</option>";
+									echo "<option value='0'>Produksi Berkurang</option>
+									<option value='1' selected>Produksi Bertambah</option>";
 								} else {
-									echo "<option value='0' selected>Tips Sedikit</option>
-									<option value='1'>Tips Banyak</option>";
+									echo "<option value='0' selected>Produksi Berkurang</option>
+									<option value='1'>Produksi Bertambah</option>";
 								}
 								echo "</select>
 							</td></tr>";
@@ -148,7 +148,7 @@
 
 		}
 
-		$a = array("Bayar Sedikit","Bayar Banyak","Layanan Cepat","Layanan Lama");
+		$a = array("Permintaan Turun","Permintaan Naik","Persediaan Sedikit","Persediaan Banyak");
 		$c = 0; $JumZ=0;
 		echo "<table border='1px solid' cellpadding='1' cellspacing='1'>
 				<tr><td colspan='2' style='text-align:center;'><b>FUNGSI KEANGGOTAAN</b></td></tr>";
@@ -199,7 +199,7 @@
 		}
 		echo "</table><br/><br/>";
 		$hasil = $JumZ/$jumRule;
-		echo "<span style='font-size:xx-large;'><b>Tips Rp. ".round($hasil).",-</b></span>";
+		echo "<span style='font-size:xx-large;'><b>Produksi ".round($hasil).",-</b></span>";
 	?>
 
     </center>
